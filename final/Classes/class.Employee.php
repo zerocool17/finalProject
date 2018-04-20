@@ -10,7 +10,7 @@ Class Employee {
 		$this->database = $database;
 
 
-$sql = file_get_contents('sql/getEmployee.sql');
+$sql = file_get_contents('sql/getClassEmployee.sql');
 	$params = array(
 		'employee' => $_SESSION["employeeid"]
 	);

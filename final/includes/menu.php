@@ -26,18 +26,13 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Menu
-                    </a>
+                  <a href="#">User: <?php echo $employee1->employeeName ?></a>
                 </li>
                 <li>
-                    <a href="addEmployee.php?action=add">Add Employee</a>
+                    <a href="employees.php">Employees</a>
                 </li>
                 <li>
                     <a href="animals.php">Animals</a>
-                </li>
-                <li>
-                    <a href="addOrder.php?action=add">Add Order</a>
                 </li>
                 <li>
                     <a href="orders.php?">Orders</a>

@@ -20,7 +20,7 @@
 
 
   // if employeeid is not set in the session and current URL not login.php redirect to login page
-  if (!isset($_SESSION["customerID"]) && $current_url != 'login.php') {
+  if (!isset($_SESSION["employeeid"]) && $current_url != 'login.php') {
       header("Location: login.php");
   }
 

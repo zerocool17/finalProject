@@ -57,9 +57,7 @@ $animals = searchAnimals($searchTerm, $database);
                 <form method="GET">
                   <input type="text" class="form-control" name="search-term" placeholder="Search..." /><br>
                   <input type="submit" class="btn btn-secondary"/>
-                  <p>
-                      <a href="addAnimal.php?action=add">Add Animal</a>
-                  </p>
+                  <a href="addAnimal.php?action=add" class="btn btn-secondary">Add Animal</a>
                 </form>
                 <br>
                 <br>
@@ -70,7 +68,7 @@ $animals = searchAnimals($searchTerm, $database);
               <p>Animal ID: <?php echo $animal['animalid'] ?></p>
               <p>Animal Name: <?php echo $animal['name'] ?></p>
               <p>Cost per Capture: $<?php echo $animal['cost'] ?></p>
-              <a href="addAnimal.php?action=edit&animalid=<?php echo $animal['animalid'] ?>">Edit Animal</a><br />
+              <a href="addAnimal.php?action=edit&animalid=<?php echo $animal['animalid'] ?>" class="btn btn-secondary">Edit Animal</a><br />
               <hr>
             <?php endforeach?>
         </div>

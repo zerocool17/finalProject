@@ -74,10 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								<form method="POST">
 									<div class="page">
 										<h1>Login</h1>
-
-											<input type="text" name="username" placeholder="Username" />
-											<input type="password" name="password" placeholder="Password" />
-											<input type="submit" value="Log In" />
+											<input type="text" class="form-control" name="username" placeholder="Username" /><br>
+											<input type="password" class="form-control" name="password" placeholder="Password" /><br><br>
+											<input type="submit" class="btn btn-secondary" value="Log In" />
 										</form>
 									</div>
         <!-- /#page-content-wrapper -->

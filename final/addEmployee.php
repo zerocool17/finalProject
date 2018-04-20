@@ -9,6 +9,26 @@ include('/includes/functions.php');
 // Get type of form either add or edit from the URL (ex. form.php?action=add) using the newly written get function
 $action = $_GET['action'];
 
+// Get employee id from the url.
+$employeeID = get('employeeid');
+
+// Initially set employee to null.
+$employee = null;
+
+// If customer id is not empty, get customer record into $customer variable from the database
+//     Set $customer equal to the first animal in $animal
+if(!empty($employeeID)) {
+	$sql = file_get_contents('sql/getEmployee.sql');
+	$params = array(
+		'employeeid' => $employeeID
+	);
+	$statement = $database->prepare($sql);
+	$statement->execute($params);
+	$employees = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	$employee = $employees[0];
+}
+
 // Dynamically list the available states as options in the drop down.
 $states = getStates($database);
 
@@ -37,6 +57,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $statement->execute($params);
 
   }
+
+	elseif ($action == 'edit') {
+		// Update customer
+		$sql = file_get_contents('sql/updateEmployee.sql');
+		$params = array(
+			'employeeid' => $employeeID,
+			'firstname' => $firstName,
+			'lastname' => $lastName,
+			'address' => $address,
+			'city' => $city,
+      'zipcode' => $zipCode,
+      'state' => $state
+		);
+
+		$statement = $database->prepare($sql);
+		$statement->execute($params);
+
+	}
 }
 
 ?>
@@ -77,19 +115,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h2>Add New Employee</h2>
                 <form action="" method="POST">
                   <div>
-                    <input type="text" class="form-control" name="empFirstName" placeholder="First Name" /><br>
+										<?php if($action == 'add') : ?>
+											<input type="text" class="form-control" name="empFirstName" placeholder="First Name" /><br>
+										<?php else : ?>
+											<input type="text" class="form-control" name="empFirstName" value="<?php echo $employee['firstname'] ?>"/><br>
+										<?php endif; ?>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="empLastName" placeholder="Last Name" /><br>
+										<?php if($action == 'add') : ?>
+											<input type="text" class="form-control" name="empLastName" placeholder="Last Name" /><br>
+										<?php else : ?>
+											<input type="text" class="form-control" name="empLastName" value="<?php echo $employee['lastname'] ?>"/><br>
+										<?php endif; ?>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="empAddress" placeholder="Address" /><br>
+										<?php if($action == 'add') : ?>
+											<input type="text" class="form-control" name="empAddress" placeholder="Address" /><br>
+										<?php else : ?>
+											<input type="text" class="form-control" name="empAddress" value="<?php echo $employee['address'] ?>"/><br>
+										<?php endif; ?>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="empCity" placeholder="City" /><br>
+										<?php if($action == 'add') : ?>
+										<input type="text" class="form-control" name="empCity" placeholder="City" /><br>
+										<?php else : ?>
+											<input type="text" class="form-control" name="empCity" value="<?php echo $employee['city'] ?>"/><br>
+										<?php endif; ?>
                   </div>
                   <div>
-                    <input type="number" class="form-control" name="empZipCode" placeholder="Zip Code" /><br>
+										<?php if($action == 'add') : ?>
+											<input type="number" class="form-control" name="empZipCode" placeholder="Zip Code" /><br>
+										<?php else : ?>
+											<input type="text" class="form-control" name="empZipCode" value="<?php echo $employee['zipcode'] ?>"/><br>
+										<?php endif; ?>
                   </div>
                   <div>
                     <select class="form-control" name="empState">

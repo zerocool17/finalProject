@@ -29,7 +29,6 @@ $customers = searchCustomers($searchTerm, $database);
     <meta name="author" content="">
 
     <title>Pesky Critter Removal</title>
-    <p>Currently logged in as: <?php echo $employee1->employeeName ?></p>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,9 +57,7 @@ $customers = searchCustomers($searchTerm, $database);
                 <form method="GET">
                   <input type="text" class="form-control" name="search-term" placeholder="Search..." /><br>
                   <input type="submit" class="btn btn-secondary"/>
-                  <p>
-                      <a href="addCustomer.php?action=add">Add Customer</a>
-                  </p>
+                  <a href="addCustomer.php?action=add" class="btn btn-secondary">Add Customer</a>
                 </form>
                 <br>
                 <br>
@@ -71,7 +68,7 @@ $customers = searchCustomers($searchTerm, $database);
               <p>Customer ID: <?php echo $customer['customerid']; ?></p>
               <p><?php echo $customer['firstname'] . '&nbsp' . $customer['lastname']; ?></p>
               <p><?php echo $customer['address'] . '&nbsp' . $customer['city'] . '&nbsp' . $customer['state_name'] . '&nbsp' . $customer['zipcode']; ?></p>
-              <a href="addCustomer.php?action=edit&customerid=<?php echo $customer['customerid'] ?>">Edit Customer</a><br />
+              <a href="addCustomer.php?action=edit&customerid=<?php echo $customer['customerid'] ?>" class="btn btn-secondary">Edit Customer</a><br />
               <hr>
             <?php endforeach?>
         </div>

@@ -62,6 +62,22 @@ function searchCustomers($term, $database) {
 
 }
 
+function searchEmployees($term, $database) {
+  $sql = file_get_contents('sql/searchEmployees.sql');
+  $params = array (
+    'searchTerm' => $term
+  );
+
+  //run database query and get the results
+  //loop over the results
+  $statement = $database->prepare($sql);
+  $statement->execute($params);
+
+  $employees = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $employees;
+
+}
+
 function searchOrders($term, $database) {
   $sql = file_get_contents('sql/searchOrders.sql');
   $params = array (

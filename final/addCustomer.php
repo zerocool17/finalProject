@@ -12,7 +12,7 @@ $action = $_GET['action'];
 // Get customer id from the url.
 $customerID = get('customerid');
 
-// Initially set animal to null.
+// Initially set customer to null.
 $customer = null;
 
 // If customer id is not empty, get customer record into $customer variable from the database
@@ -149,19 +149,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 										<?php endif; ?>
                   </div>
                   <div>
-										<?php if($action == 'add') : ?>
-											<select class="form-control" name="state">
-												<?php foreach ($states as $state) : ?>
-													<option selected value="<?php echo $state['stateid'] ?>"><?php echo $state['state_name'] ?></option>
-												<?php endforeach?>
-											</select>
-										<?php else : ?>
-											<select class="form-control" name="state">
-												<?php foreach ($states as $state) : ?>
-													<option selected value="<?php echo $state['stateid'] ?>"><?php echo $state['state_name'] ?></option>
-												<?php endforeach?>
-											</select>
-										<?php endif; ?>
+										<select class="form-control" name="state">
+											<?php foreach ($states as $state) : ?>
+												<option selected value="<?php echo $state['stateid'] ?>"><?php echo $state['state_name'] ?></option>
+											<?php endforeach;?>
+										</select>
 									</div>
                   <br>
                   <div>

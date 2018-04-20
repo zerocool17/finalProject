@@ -14,7 +14,7 @@ else {
   $searchTerm = '%%';
 }
 
-$orders = searchOrders($searchTerm, $database);
+$employees = searchEmployees($searchTerm, $database);
 
 ?>
 
@@ -53,24 +53,22 @@ $orders = searchOrders($searchTerm, $database);
                 <h1>Pesky Critter Removal</h1>
                 <hr>
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-                <h2>Search Orders by Customer Last Name</h2>
+                <h2>Search by Employee Last Name</h2>
                 <form method="GET">
                   <input type="text" class="form-control" name="search-term" placeholder="Search..." /><br>
                   <input type="submit" class="btn btn-secondary"/>
-                  <a href="addOrder.php?action=add" class="btn btn-secondary">Orders</a>
+                  <a href="addEmployee.php?action=add" class="btn btn-secondary">Add Employee</a>
                 </form>
                 <br>
                 <br>
 
             </div>
             <hr>
-            <?php foreach($orders as $order) : ?>
-              <p>Order ID: <?php echo $order['orderid'] ?></p>
-              <p>Start Date: <?php echo $order['startdate'] ?></p>
-              <p>Amount Owed: <?php echo $order['totalprice'] ?></p>
-              <p><?php echo $order['firstname'] . '&nbsp' . $order['lastname']; ?></p>
-              <p><?php echo $order['address'] ?></p>
-              <p><?php echo $order['city'] . '&nbsp' . $order['zipcode'] . '&nbsp' . $order['state_name']; ?></p>
+            <?php foreach($employees as $employee) : ?>
+              <p>Employee ID: <?php echo $employee['employeeid']; ?></p>
+              <p><?php echo $employee['firstname'] . '&nbsp' . $employee['lastname']; ?></p>
+              <p><?php echo $employee['address'] . '&nbsp' . $employee['city'] . '&nbsp' . $employee['state_name'] . '&nbsp' . $employee['zipcode']; ?></p>
+              <a href="addEmployee.php?action=edit&employeeid=<?php echo $employee['employeeid'] ?>" class="btn btn-secondary">Edit Employee</a><br />
               <hr>
             <?php endforeach?>
         </div>
