@@ -57,7 +57,7 @@ $orders = searchOrders($searchTerm, $database);
                 <form method="GET">
                   <input type="text" class="form-control" name="search-term" placeholder="Search..." /><br>
                   <input type="submit" class="btn btn-secondary"/>
-                  <a href="addOrder.php?action=add" class="btn btn-secondary">Orders</a>
+                  <a href="addOrder.php?action=add" class="btn btn-secondary">Add Order</a>
                 </form>
                 <br>
                 <br>

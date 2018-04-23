@@ -50,6 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	elseif ($action == 'edit') {
 
 	}
+
+	// Redirect to the orders.php file
+	header('location: orders.php');
+	die();
 }
 
 ?>

@@ -75,6 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$statement->execute($params);
 
 	}
+
+	// Redirect to the employees.php file
+	header('location: employees.php');
+	die();
 }
 
 ?>

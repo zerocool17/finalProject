@@ -4,5 +4,4 @@ FROM final_order AS o
 JOIN final_customer AS c ON c.customerid = o.customerid
 JOIN final_state AS s ON s.stateid = c.stateid
 WHERE c.lastname LIKE :searchTerm
-ORDER BY c.lastname ASC;
-
+ORDER BY o.orderid DESC;

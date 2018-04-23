@@ -74,6 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$statement->execute($params);
 
 	}
+
+	// Redirect to the customers.php file
+	header('location: customers.php');
+	die();
+
 }
 
 ?>

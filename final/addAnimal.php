@@ -59,6 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $statement->execute($params);
 
 	}
+
+	// Redirect to the animals.php file
+	header('location: animals.php');
+	die();
 }
 
 ?>

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Set a session variable with a key of employeeid equal to the employeeid returned
 		$_SESSION['employeeid'] = $user['employeeid'];
 
-		// Redirect to the index.php file
+		// Redirect to the customers.php file
 		header('location: customers.php');
 		die();
 	}
